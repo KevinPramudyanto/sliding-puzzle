@@ -107,3 +107,102 @@ body {
   height: 100%;
   background: var(--elColor);
 }
+
+.gameContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameContainer .nav {
+  position: absolute;
+  width: 99%;
+  top: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gameContainer .stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 30px;
+}
+
+.gameContainer .board {
+  display: grid;
+  gap: 10px;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: inset 0px 0px 30px var(--elColor);
+}
+
+.gameContainer .cell {
+  aspect-ratio: 1/1;
+  font-size: 80px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+.gameContainer .cell:hover {
+  transform: translate(-2px, -2px);
+}
+
+.gameContainer .full {
+  box-shadow: inset 3px 3px 20px var(--elColor), 3px 3px 5px var(--elColor);
+}
+.gameContainer .full:hover {
+  box-shadow: inset 3px 3px 20px var(--elColor), 5px 5px 5px var(--elColor);
+}
+
+.moveRight {
+  animation: moveRight 0.5s;
+}
+@keyframes moveRight {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.moveLeft {
+  animation: moveLeft 0.5s;
+}
+@keyframes moveLeft {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.moveDown {
+  animation: moveDown 0.5s;
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.moveUp {
+  animation: moveUp 0.5s;
+}
+@keyframes moveUp {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
