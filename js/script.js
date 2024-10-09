@@ -169,6 +169,22 @@ const startTimer = () => {
   }, 1000);
 };
 
+const resetStat = () => {
+  moves = 0;
+  movesEl.innerText = moves;
+  clearInterval(timerInterval);
+  timeEl.innerText = "00:00:00";
+};
+
+const removeCell = () => {
+  for (let i = 0; i < cells.length; i++) {
+    for (let j = 0; j < cells[i].length; j++) {
+      cells[i][j].remove();
+    }
+  }
+  cells = [];
+};
+
 /*------------------------------- Handle Click ------------------------------*/
 const handlePlayBtnClick = () => {
   mainMenuContainerEl.style.display = "none";
@@ -192,7 +208,26 @@ const handleBoardClick = (e) => {
   checkWin();
 };
 
+const handleResetBtnClick = () => {
+  mainMenuContainerEl.style.display = "flex";
+  loadingContainerEl.style.display = "none";
+  gameContainerEl.style.display = "none";
+  winContainerEl.style.display = "none";
+  resetStat();
+  removeCell();
+};
+
 /*----------------------------- Event Listeners -----------------------------*/
 playBtn.addEventListener("click", handlePlayBtnClick);
 
 board.addEventListener("click", handleBoardClick);
+
+confirmResetBtn.addEventListener("click", () => {
+  cnfrmResetContainerEl.style.display = "flex";
+});
+cnfrmResetContainerEl.addEventListener("click", () => {
+  cnfrmResetContainerEl.style.display = "none";
+});
+
+resetBtn.addEventListener("click", handleResetBtnClick);
+reset2Btn.addEventListener("click", handleResetBtnClick);
