@@ -325,3 +325,112 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 20px var(--elColor), inset 0 0 40px var(--elColor);
 }
+
+.instructionContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  animation: instructionContainer 0.5s;
+}
+@keyframes instructionContainer {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.instructionContainer > div > div > p {
+  margin: 5px;
+  text-align: left;
+}
+
+.instructionContainer .samples {
+  display: grid;
+  gap: 5px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  margin: 30px;
+  padding: 15px;
+  border-radius: 12px;
+  animation: samples 5s infinite;
+}
+@keyframes samples {
+  0%,
+  80% {
+    box-shadow: inset 0px 0px 15px var(--elColor);
+  }
+  100% {
+    box-shadow: inset 0px 0px 15px var(--elColor), 0px 0px 15px var(--elColor);
+  }
+}
+
+.instructionContainer .sample {
+  aspect-ratio: 1/1;
+  font-size: 40px;
+  border-radius: 12px;
+  box-shadow: inset 1px 1px 10px var(--elColor), 1px 1px 2px var(--elColor);
+}
+
+.instructionContainer .sample:nth-child(3) {
+  animation: sample3 5s infinite;
+}
+@keyframes sample3 {
+  0% {
+    transform: translateY(60px);
+  }
+  20%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.instructionContainer .sample:nth-child(7) {
+  animation: sample7 5s infinite;
+}
+@keyframes sample7 {
+  0%,
+  20% {
+    transform: translateX(60px);
+  }
+  40%,
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.instructionContainer .sample:nth-child(8) {
+  animation: sample8 5s infinite;
+}
+@keyframes sample8 {
+  0%,
+  40% {
+    transform: translateY(60px);
+  }
+  60%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.instructionContainer .sample:nth-child(12) {
+  animation: sample12 5s infinite;
+}
+@keyframes sample12 {
+  0%,
+  60% {
+    transform: translateY(60px);
+  }
+  80%,
+  100% {
+    transform: translateY(0px);
+  }
+}
