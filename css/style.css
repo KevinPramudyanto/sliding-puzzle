@@ -18,3 +18,44 @@ body {
   height: 100vh;
   background: var(--bgColor);
 }
+
+.largeButton {
+  margin: 30px;
+  padding: 20px;
+  font-size: 30px;
+  text-shadow: none;
+  letter-spacing: 1px;
+  border: 1px solid var(--elColor);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.largeButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--elColor);
+}
+
+.mediumButton {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  border: 1px solid var(--elColor);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.mediumButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--elColor);
+}
+
+.smallButton {
+  margin: 5px;
+  padding: 5px;
+  font-size: 20px;
+  border: 1px solid var(--elColor);
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.smallButton:hover {
+  box-shadow: 0 0 20px var(--elColor);
+}
