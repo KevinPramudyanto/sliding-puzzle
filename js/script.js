@@ -231,3 +231,13 @@ cnfrmResetContainerEl.addEventListener("click", () => {
 
 resetBtn.addEventListener("click", handleResetBtnClick);
 reset2Btn.addEventListener("click", handleResetBtnClick);
+
+instructionBtn.addEventListener("click", () => {
+  instructionContainerEl.style.display = "flex";
+});
+instruction2Btn.addEventListener("click", () => {
+  instructionContainerEl.style.display = "flex";
+});
+instructionContainerEl.addEventListener("click", () => {
+  instructionContainerEl.style.display = "none";
+});
