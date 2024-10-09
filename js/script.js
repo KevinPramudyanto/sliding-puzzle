@@ -241,3 +241,93 @@ instruction2Btn.addEventListener("click", () => {
 instructionContainerEl.addEventListener("click", () => {
   instructionContainerEl.style.display = "none";
 });
+
+settingBtn.addEventListener("click", () => {
+  mainMenuContainerEl.style.display = "none";
+  settingContainerEl.style.display = "flex";
+});
+okBtn.addEventListener("click", () => {
+  mainMenuContainerEl.style.display = "flex";
+  settingContainerEl.style.display = "none";
+});
+
+rowButtons.addEventListener("click", (e) => {
+  if (e.target.className === "mediumButton") {
+    row3Btn.style.transform = "none";
+    row3Btn.style.boxShadow = "none";
+    row4Btn.style.transform = "none";
+    row4Btn.style.boxShadow = "none";
+    row5Btn.style.transform = "none";
+    row5Btn.style.boxShadow = "none";
+    row6Btn.style.transform = "none";
+    row6Btn.style.boxShadow = "none";
+    e.target.style.transform = "scale(1.1)";
+    e.target.style.boxShadow = "0 0 20px var(--elColor)";
+    row = parseInt(e.target.innerText);
+  }
+});
+
+colButtons.addEventListener("click", (e) => {
+  if (e.target.className === "mediumButton") {
+    col3Btn.style.transform = "none";
+    col3Btn.style.boxShadow = "none";
+    col4Btn.style.transform = "none";
+    col4Btn.style.boxShadow = "none";
+    col5Btn.style.transform = "none";
+    col5Btn.style.boxShadow = "none";
+    col6Btn.style.transform = "none";
+    col6Btn.style.boxShadow = "none";
+    e.target.style.transform = "scale(1.1)";
+    e.target.style.boxShadow = "0 0 20px var(--elColor)";
+    col = parseInt(e.target.innerText);
+  }
+});
+
+lightButtons.addEventListener("click", () => {
+  light = !light;
+  if (light) {
+    lightButtons.style.justifyContent = "flex-start";
+    document
+      .querySelector(":root")
+      .style.setProperty(
+        "--bgColor",
+        "linear-gradient(150deg, rgb(239, 236, 227) 20%, rgb(204, 190, 148) 80%"
+      );
+    document
+      .querySelector(":root")
+      .style.setProperty("--elColor", "rgb(51, 37, 4)");
+  } else {
+    lightButtons.style.justifyContent = "flex-end";
+    document
+      .querySelector(":root")
+      .style.setProperty(
+        "--bgColor",
+        "linear-gradient(150deg, rgb(16, 19, 28) 20%, rgb(31, 38, 59) 80%)"
+      );
+    document
+      .querySelector(":root")
+      .style.setProperty("--elColor", "rgb(160, 210, 235)");
+  }
+  lightButtons.style.justifyContent = light ? "flex-start" : "flex-end";
+});
+
+defaultBtn.addEventListener("click", () => {
+  row3Btn.style.transform = "none";
+  row3Btn.style.boxShadow = "none";
+  row4Btn.style.transform = "scale(1.1)";
+  row4Btn.style.boxShadow = "0 0 20px var(--elColor)";
+  row5Btn.style.transform = "none";
+  row5Btn.style.boxShadow = "none";
+  row6Btn.style.transform = "none";
+  row6Btn.style.boxShadow = "none";
+  row = 4;
+  col3Btn.style.transform = "none";
+  col3Btn.style.boxShadow = "none";
+  col4Btn.style.transform = "scale(1.1)";
+  col4Btn.style.boxShadow = "0 0 20px var(--elColor)";
+  col5Btn.style.transform = "none";
+  col5Btn.style.boxShadow = "none";
+  col6Btn.style.transform = "none";
+  col6Btn.style.boxShadow = "none";
+  col = 4;
+});
