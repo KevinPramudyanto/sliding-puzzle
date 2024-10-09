@@ -59,3 +59,9 @@ body {
 .smallButton:hover {
   box-shadow: 0 0 20px var(--elColor);
 }
+
+.border {
+  padding: 20px;
+  border: 1px solid var(--elColor);
+  border-radius: 10px;
+}
