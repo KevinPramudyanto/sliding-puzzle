@@ -91,6 +91,24 @@ const move = (r, c) => {
   }
 };
 
+const checkWin = () => {
+  let num = 0;
+  let win = true;
+  for (let i = 0; i < row; i++) {
+    for (let j = 0; j < col; j++) {
+      num++;
+      if (!(i === row - 1 && j === col - 1)) {
+        win = win && cells[i][j].innerText == num;
+      }
+    }
+  }
+  if (win) {
+    totalMovesEl.innerText = movesEl.innerText;
+    totalTimeEl.innerText = timeEl.innerText;
+    winContainerEl.style.display = "flex";
+  }
+};
+
 const startLoading = () => {
   let percentage = 0;
   const loadingInterval = setInterval(() => {
@@ -167,5 +185,14 @@ const handlePlayBtnClick = () => {
   }, 2500);
 };
 
+const handleBoardClick = (e) => {
+  const currRow = parseInt(e.target.id.charAt(4));
+  const currCol = parseInt(e.target.id.charAt(5));
+  move(currRow, currCol);
+  checkWin();
+};
+
 /*----------------------------- Event Listeners -----------------------------*/
 playBtn.addEventListener("click", handlePlayBtnClick);
+
+board.addEventListener("click", handleBoardClick);
