@@ -1,0 +1,20 @@
+:root {
+  --bgColor: linear-gradient(150deg, rgb(16, 19, 28) 20%, rgb(31, 38, 59) 80%);
+  --elColor: rgb(160, 210, 235);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Exo 2", sans-serif;
+  text-align: center;
+  color: var(--elColor);
+  cursor: crosshair;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  background: var(--bgColor);
+}
