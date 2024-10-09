@@ -49,3 +49,123 @@ const okBtn = document.querySelector("#okBtn");
 const defaultBtn = document.querySelector("#defaultBtn");
 
 const instructionContainerEl = document.querySelector(".instructionContainer");
+
+/*-------------------------------- Functions --------------------------------*/
+const move = (r, c) => {
+  if (c + 1 < col && cells[r][c + 1].innerText === "") {
+    cells[r][c + 1].innerText = cells[r][c].innerText;
+    cells[r][c].innerText = "";
+    cells[r][c + 1].classList.toggle("full");
+    cells[r][c + 1].classList.toggle("moveRight");
+    setTimeout(() => cells[r][c + 1].classList.toggle("moveRight"), 500);
+    cells[r][c].classList.toggle("full");
+    moves++;
+    movesEl.innerText = moves;
+  } else if (c - 1 >= 0 && cells[r][c - 1].innerText === "") {
+    cells[r][c - 1].innerText = cells[r][c].innerText;
+    cells[r][c].innerText = "";
+    cells[r][c - 1].classList.toggle("full");
+    cells[r][c - 1].classList.toggle("moveLeft");
+    setTimeout(() => cells[r][c - 1].classList.toggle("moveLeft"), 500);
+    cells[r][c].classList.toggle("full");
+    moves++;
+    movesEl.innerText = moves;
+  } else if (r + 1 < row && cells[r + 1][c].innerText === "") {
+    cells[r + 1][c].innerText = cells[r][c].innerText;
+    cells[r][c].innerText = "";
+    cells[r + 1][c].classList.toggle("full");
+    cells[r + 1][c].classList.toggle("moveDown");
+    setTimeout(() => cells[r + 1][c].classList.toggle("moveDown"), 500);
+    cells[r][c].classList.toggle("full");
+    moves++;
+    movesEl.innerText = moves;
+  } else if (r - 1 >= 0 && cells[r - 1][c].innerText === "") {
+    cells[r - 1][c].innerText = cells[r][c].innerText;
+    cells[r][c].innerText = "";
+    cells[r - 1][c].classList.toggle("full");
+    cells[r - 1][c].classList.toggle("moveUp");
+    setTimeout(() => cells[r - 1][c].classList.toggle("moveUp"), 500);
+    cells[r][c].classList.toggle("full");
+    moves++;
+    movesEl.innerText = moves;
+  }
+};
+
+const startLoading = () => {
+  let percentage = 0;
+  const loadingInterval = setInterval(() => {
+    loadingNumEl.innerText = percentage + "%";
+    loadingBarProgressEl.style.width = percentage + "%";
+    percentage++;
+    if (percentage > 100) {
+      clearInterval(loadingInterval);
+    }
+  }, 20);
+};
+
+const createCell = () => {
+  board.style.gridTemplateRows = `repeat(${row}, 1fr)`;
+  board.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
+
+  let num = 0;
+  for (let i = 0; i < row; i++) {
+    cells.push([]);
+    for (let j = 0; j < col; j++) {
+      const divEl = document.createElement("div");
+      divEl.classList.add("cell");
+      divEl.classList.add("full");
+      divEl.id = `cell${i}${j}`;
+      board.appendChild(divEl);
+
+      cells[i].push(document.querySelector(`#cell${i}${j}`));
+      num++;
+      cells[i][j].innerText = num;
+    }
+  }
+
+  cells[row - 1][col - 1].classList.remove("full");
+  cells[row - 1][col - 1].innerText = "";
+};
+
+const shuffle = () => {
+  for (let count = 0; count < row * row * col * col; count++) {
+    const randRow = Math.floor(Math.random() * row);
+    const randCol = Math.floor(Math.random() * col);
+    move(randRow, randCol);
+  }
+  moves = 0;
+  movesEl.innerText = moves;
+};
+
+const startTimer = () => {
+  let time = 0;
+  timerInterval = setInterval(() => {
+    time++;
+    const seconds = Math.floor(time % 60);
+    const ss = seconds > 9 ? seconds : "0" + seconds;
+    const minutes = Math.floor((time % 3600) / 60);
+    const mm = minutes > 9 ? minutes : "0" + minutes;
+    const hours = Math.floor(time / 3600);
+    const hh = hours > 9 ? hours : "0" + hours;
+    timeEl.innerText = `${hh}:${mm}:${ss}`;
+  }, 1000);
+};
+
+/*------------------------------- Handle Click ------------------------------*/
+const handlePlayBtnClick = () => {
+  mainMenuContainerEl.style.display = "none";
+  loadingContainerEl.style.display = "flex";
+  gameContainerEl.style.display = "none";
+  startLoading();
+  createCell();
+  shuffle();
+  setTimeout(() => {
+    mainMenuContainerEl.style.display = "none";
+    loadingContainerEl.style.display = "none";
+    gameContainerEl.style.display = "flex";
+    startTimer();
+  }, 2500);
+};
+
+/*----------------------------- Event Listeners -----------------------------*/
+playBtn.addEventListener("click", handlePlayBtnClick);
