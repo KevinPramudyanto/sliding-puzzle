@@ -278,3 +278,50 @@ body {
     transform: scale(1);
   }
 }
+
+.settingContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 30px;
+}
+
+.settingContainer .title {
+  font-size: 50px;
+  text-shadow: 0 0 20px var(--elColor);
+}
+
+.settingContainer .rowButtons,
+.settingContainer .colButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settingContainer #row4Btn,
+.settingContainer #col4Btn {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--elColor);
+}
+
+.settingContainer .lightButtons {
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid var(--elColor);
+  border-radius: 10px;
+}
+
+.settingContainer .lightButton {
+  height: 40px;
+  width: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--elColor), inset 0 0 40px var(--elColor);
+}
