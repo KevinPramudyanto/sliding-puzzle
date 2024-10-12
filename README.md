@@ -7,6 +7,7 @@ This game is based on the old mechanical puzzle called 15 Puzzle. It is created 
 ## Table of Contents
 
 - [Deployed Game](#deployed-game)
+- [Installation](#installation)
 - [Game Description](#game-description)
   - [Main Menu](#main-menu)
   - [Game Screen](#game-screen)
