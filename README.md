@@ -30,3 +30,12 @@ This game is based on the old mechanical puzzle called 15 Puzzle. It is created 
   - [Instruction Button](#instruction-button)
 - [Next Steps](#next-steps)
 - [Attributions](#attributions)
+
+## Deployed Game
+
+Live URL: [Sliding Puzzle](https://kevinpramudyanto.github.io/sliding-puzzle/)
+
+## Installation
+
+1. Clone this repository: https://github.com/KevinPramudyanto/sliding-puzzle.git
+2. Open `index.html` to start playing
