@@ -456,3 +456,18 @@ instructionContainerEl.addEventListener("click", () => {
   instructionContainerEl.style.display = "none";
 });
 ```
+
+## Next Steps
+
+Features to implement in the future:
+
+- Control by using keyboard
+- Add audio, such as sound effect and background music
+- Store each score in a high score table
+
+## Attributions
+
+- [Google Fonts](https://fonts.google.com/specimen/Exo+2) for Exo 2 font family
+- [Flaticon](https://flaticon.com/free-icon/puzzle_7468192) for puzzle icon in the title bar
+- [Flaticon](https://flaticon.com/free-icon/star_541415) for star icon in the document
+- [MDN](https://developer.mozilla.org/en-US/) for CSS and JavaScript references
